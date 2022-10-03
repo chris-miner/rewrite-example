@@ -1,8 +1,9 @@
 package org.openrewrite.samples
 
 import org.junit.jupiter.api.Test
-import org.openrewrite.java.JavaParser
-import org.openrewrite.java.JavaRecipeTest
+import org.openrewrite.java.Assertions.java
+import org.openrewrite.test.RecipeSpec
+import org.openrewrite.test.RewriteTest
 
 class SayHelloRecipeTest: RewriteTest {
 
