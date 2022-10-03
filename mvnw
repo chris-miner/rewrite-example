@@ -24,6 +24,7 @@
 # Required ENV vars:
 # ------------------
 #   JAVA_HOME - location of a JDK home dir
+JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 #
 # Optional ENV vars
 # -----------------
