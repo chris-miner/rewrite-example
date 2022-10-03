@@ -15,7 +15,9 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
-    <kotlin.version>1.4.31</kotlin.version>
+    <junit.version>5.8.2</junit.version>
+    <kotlin.version>1.5.31</kotlin.version>
+    <assertj.version>3.23.1</assertj.version>
   </properties>
 
   <dependencyManagement>
@@ -38,27 +40,77 @@
     </dependency>
 
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.11</version>
-      <scope>test</scope>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-api</artifactId>
+      <version>${junit.version}</version>
+      <scope>
+        test
+      </scope>
     </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-engine</artifactId>
+      <version>${junit.version}</version>
+      <scope>
+        test
+      </scope>
+    </dependency>
+
+    <!-- Optional dependencies and only needed if writing tests in Kotlin. -->
+    <dependency>
+      <groupId>org.jetbrains.kotlin</groupId>
+      <artifactId>kotlin-reflect</artifactId>
+      <version>${kotlin.version}</version>
+      <scope>
+        test
+      </scope>
+    </dependency>
+    <dependency>
+      <groupId>org.jetbrains.kotlin</groupId>
+      <artifactId>kotlin-stdlib-jdk8</artifactId>
+      <version>${kotlin.version}</version>
+      <scope>
+        test
+      </scope>
+    </dependency>
+
+    <!-- kotln-script-runtime is needed to run Kotlin scripts. -->
+    <dependency>
+      <groupId>org.jetbrains.kotlin</groupId>
+      <artifactId>kotlin-script-runtime</artifactId>
+      <version>${kotlin.version}</version>
+      <!-- <scope>test</scope> -->
+    </dependency>
+
+    <!-- Optional dependency on assertJ to provide fluent assertions. -->
+    <dependency>
+      <groupId>org.assertj</groupId>
+      <artifactId>assertj-core</artifactId>
+      <version>${assertj.version}</version>
+      <scope>
+        test
+      </scope>
+    </dependency>
+
     <!-- rewrite-java depedencies only necessary for Java Recipe development -->
     <dependency>
       <groupId>org.openrewrite</groupId>
       <artifactId>rewrite-java</artifactId>
       <scope>compile</scope>
     </dependency>
+
     <dependency>
       <groupId>org.openrewrite</groupId>
       <artifactId>rewrite-java-8</artifactId>
       <scope>runtime</scope>
     </dependency>
+
     <dependency>
       <groupId>org.openrewrite</groupId>
       <artifactId>rewrite-java-11</artifactId>
       <scope>runtime</scope>
     </dependency>
+
     <!-- rewrite-maven dependency only necessary for Maven Recipe development -->
     <dependency>
       <groupId>org.openrewrite</groupId>
